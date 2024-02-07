@@ -1,5 +1,13 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
+
+const db = require('./database/models/index');
+const initModels = require('./database/models/init-models');
+exports.models = initModels(db.sequelize);
+
+const applicantRoute = require('./routes/applicant.route');
+const professionRoute = require('./routes/profession.route');
 
 require('dotenv').config();
 
@@ -16,10 +24,8 @@ app.use(express.json());
 
 app.use(morgan('dev'));
 
-//app.use('/', mainRoute);
-
-//app.use('/api/professions', apiProfession);
-//app.use('/api/applicants', apiApplicant);
+app.use('/api/applicants', applicantRoute);
+app.use('/api/professions', professionRoute);
 
 app.use(async (err, req, res, next) => {
 	try {
