@@ -1,23 +1,18 @@
-import Aspirantes from "./Aspirantes";
-import Profesion from "./Profesion";
+import HeaderWrap from "./HeaderWrap";
+import Applicant from "./Applicant";
+import Profession from "./Profession";
 import "../assets/css/contentWrap.css";
+import {Routes, Route} from "react-router-dom"
 
 function ContentWrap() {
     return (
         <>
             <main className="content-wrap">
-
-                <header className="preventa">
-                    <h2>Búsqueda y selección</h2>
-                    <p className="text-center h5">Encontramos talento para tu empresa, en todos los cargos administrativos, profesionales y técnicos.</p>
-                    <div>
-                        <img src="/img/banner.jpg" alt="Recursos Humanos" />
-                    </div>
-                </header>
-
-                <Aspirantes />
-                <Profesion />
-
+                <Routes>
+                    <Route path="/" exact="true" element={<HeaderWrap />} />
+                    <Route path="/applicant" element={<Applicant />} />
+                    <Route path="/profession" element={<Profession />} />
+                </Routes>
             </main>
         </>
     )
