@@ -25,6 +25,7 @@ exports.getApplicants = async (req, res, next) => {
 		//Retorna los aspirantes en formato JSON
 		res.json(applicants);
 	} catch (err) {
+
 		next(err);
 	}
 };

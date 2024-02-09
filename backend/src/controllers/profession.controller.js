@@ -4,6 +4,7 @@ const Profession = require('../app').models.professions;
 exports.getProfessions = async (req, res, next) => {
 	try {
 		// Consulta todas las profesiones
+
 		const professions = await Profession.findAll();
 
 		if (!professions)
@@ -11,6 +12,7 @@ exports.getProfessions = async (req, res, next) => {
 		// Retorna las profesiones en formato JSON
 		res.json(professions);
 	} catch (err) {
+
 		next(err);
 	}
 };
