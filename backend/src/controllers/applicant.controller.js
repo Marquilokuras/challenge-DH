@@ -12,4 +12,15 @@ exports.getApplicants = async (req, res) => {
 	//   countByCategory: countCategory(dataCategories, dataProductCategories),
 	//   products: data,
 	// });
+	try{
+		// Consulta todas los aspirantes
+		const applications = await Applicant.findAll();
+		
+		if(!applications)
+			throw errorHandler('An error with applications ocurred', 500, {})
+		//Retorna los aspirantes en formato JSON
+		res.json(applications);
+	}catch{
+		next(err);
+	}
 };

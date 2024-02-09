@@ -8,5 +8,3 @@
 - Rocio Aldana Torrejon
 
 MODELO ENTIDAD RELACION
-
-![alt text](image.png)
