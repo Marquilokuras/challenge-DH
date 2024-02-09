@@ -7,5 +7,6 @@
 - Facundo Jose Romero
 - Rocio Aldana Torrejon
 
+MODELO ENTIDAD RELACION:
 
-![MODELO ENTIDAD RELACION](merChallenge.png)
+![MODELO ENTIDAD RELACION](https://github.com/Marquilokuras/challenge-DH.git/merChallenge.png)
