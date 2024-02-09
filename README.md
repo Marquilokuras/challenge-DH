@@ -7,4 +7,5 @@
 - Facundo Jose Romero
 - Rocio Aldana Torrejon
 
-MODELO ENTIDAD RELACION
+
+![MODELO ENTIDAD RELACION](merChallenge.png)
