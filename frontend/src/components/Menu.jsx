@@ -44,7 +44,7 @@ function Menu() {
 							</Link>
 						</li>
 						<li>
-							<Link to="/">
+							<Link to="/contact">
 								<i className="bi bi-chat-left-text" style={{fontSize: "1.2rem", color: "cornflowerblue"}}></i>
 								- Contacto
 							</Link>
