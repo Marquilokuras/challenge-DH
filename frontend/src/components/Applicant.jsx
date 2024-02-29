@@ -89,18 +89,24 @@ function Applicant() {
                 className="person-box shadow p-3 mb-5 bg-body-tertiary rounded"
                 key={`div-1-${i}`}
               >
+                <div className="box-avatar" key={`div-avatar-${i}`}>
+                        <img
+                          src={`/img/${result.image}`}
+                          alt={`img-${result.name}`}
+                          key={`img-${i}`}
+                        />
+                      </div>
                 <div className="box-bio" key={`div-3-${i}`}>
                   <h2 className="bio-name" key={`div-2-${i}`}>
                     {result.name} {result.lastname}
                   </h2>
                   {result.professions.map((res, j) => (
                     <p className="bio-position" key={`div-2-${j}`}>
-                      {" "}
-                      {res.gender}{" "}
+                      {res.profession}
                     </p>
                   ))}
                 </div>
-                <h3 key={`name-${i}`}>{result.gender} </h3>
+                {/* <h3 key={`name-${i}`}>{result.gender} </h3> */}
               </div>
             ))}
           </article>
@@ -133,6 +139,8 @@ function Applicant() {
                           </p>
                         ))}
                       </div>
+                <h3 key={`name-${i}`}>{result.gender} </h3>
+
                       <div className="box-actions" key={`div-actions-${i}`}>
                         <button key={`but-1-${i}`}>
                           <i className="bi bi-star" key={`icon-1-${i}`}></i>
