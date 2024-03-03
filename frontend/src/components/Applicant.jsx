@@ -23,13 +23,12 @@ function Applicant() {
   return (
     <>
       <section className="content aspirantes" id="candidate">
-        <h2>Aspirantes</h2>
+        <h2 className="text-center">Aspirantes</h2>
         <ul>
           <div className="container mt-4">
             <h4>Filtro por Género</h4>
-            <div className="d-flex gap-2">
-              <div>
-                <h6>Hombre</h6>
+            <div className="d-flex flex-wrap gap-2">
+              <div className="mb-2">
                 <button
                   className={`btn ${
                     generoSeleccionado === "Man"
@@ -38,11 +37,10 @@ function Applicant() {
                   }`}
                   onClick={() => seleccionarGenero("Man")}
                 >
-                  Seleccionar
+                  Hombre
                 </button>
               </div>
-              <div>
-                <h6>Mujer</h6>
+              <div className="mb-2">
                 <button
                   className={`btn ${
                     generoSeleccionado === "Woman"
@@ -51,11 +49,10 @@ function Applicant() {
                   }`}
                   onClick={() => seleccionarGenero("Woman")}
                 >
-                  Seleccionar
+                  Mujer
                 </button>
               </div>
-              <div>
-                <h6>Otros</h6>
+              <div className="mb-2">
                 <button
                   className={`btn ${
                     generoSeleccionado === "Other"
@@ -64,11 +61,10 @@ function Applicant() {
                   }`}
                   onClick={() => seleccionarGenero("Other")}
                 >
-                  Seleccionar
+                  Otros
                 </button>
               </div>
-              <div>
-                <h6>Todos</h6>
+              <div className="mb-2">
                 <button
                   className={`btn ${
                     generoSeleccionado === "all"
@@ -77,7 +73,7 @@ function Applicant() {
                   }`}
                   onClick={() => seleccionarGenero("all")}
                 >
-                  Seleccionar
+                  Todos
                 </button>
               </div>
             </div>
@@ -86,27 +82,36 @@ function Applicant() {
           <article className="person-boxes">
             {solicitantesFiltrados.map((result, i) => (
               <div
-                className="person-box shadow p-3 mb-5 bg-body-tertiary rounded"
+                className="mt-3 person-box shadow p-3 mb-5 bg-body-tertiary rounded"
                 key={`div-1-${i}`}
               >
                 <div className="box-avatar" key={`div-avatar-${i}`}>
-                        <img
-                          src={`/img/${result.image}`}
-                          alt={`img-${result.name}`}
-                          key={`img-${i}`}
-                        />
-                      </div>
+                  <img
+                    src={`/img/${result.image}`}
+                    alt={`img-${result.name}`}
+                    key={`img-${i}`}
+                  />
+                </div>
                 <div className="box-bio" key={`div-3-${i}`}>
                   <h2 className="bio-name" key={`div-2-${i}`}>
                     {result.name} {result.lastname}
                   </h2>
-                  {result.professions.map((res, j) => (
-                    <p className="bio-position" key={`div-2-${j}`}>
-                      {res.profession}
-                    </p>
-                  ))}
+                  <h6>Detalle:</h6>
+                  <h2 className="bio-position" key={`div-2-${i}`}>
+                    Linkedin: {result.urlLinkedin}
+                  </h2>
+                  <h2 className="bio-position  mt-2" key={`div-2-${i}`}>
+                    Teléfono: {result.phone}
+                  </h2>
+                  <div className="bio-position mt-2">
+                    <h8>Profesion:</h8>
+                    {result.professions.map((res, j) => (
+                      <p className="bio-position mt-1" key={`div-2-${j}`}>
+                        {res.profession}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-                {/* <h3 key={`name-${i}`}>{result.gender} </h3> */}
               </div>
             ))}
           </article>
@@ -139,7 +144,20 @@ function Applicant() {
                           </p>
                         ))}
                       </div>
-                <h3 key={`name-${i}`}>{result.gender} </h3>
+                      <div className="mt-2">
+                        {(() => {
+                          switch (result.gender) {
+                            case "Woman":
+                              return <h6 key={`name-${i}`}>Mujer</h6>;
+                            case "Man":
+                              return <h6 key={`name-${i}`}>Hombre</h6>;
+                            case "Other":
+                              return <h6 key={`name-${i}`}>Otro</h6>;
+                            default:
+                              return <h6 key={`name-${i}`}>{result.gender}</h6>;
+                          }
+                        })()}
+                      </div>
 
                       <div className="box-actions" key={`div-actions-${i}`}>
                         <button key={`but-1-${i}`}>
