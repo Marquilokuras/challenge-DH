@@ -1,4 +1,5 @@
 import * as Icon from "react-bootstrap-icons";
+import {Link} from "react-router-dom"
 
 function Contact() {
   return (
@@ -72,12 +73,12 @@ function Contact() {
                 </div>
               </form>
               <div className="text-center text-md-left mt-3">
-                <a
-                  href="mailto:rh@digitalhouse.com"
+                <Link
+                  to="mailto:rh@digitalhouse.com"
                   className="btn btn-primary"
                 >
                   Enviar
-                </a>
+                </Link>
               </div>
               <div className="status"></div>
             </div>
@@ -95,13 +96,13 @@ function Contact() {
                 </li>
                 <li>
                   <Icon.Mailbox2Flag className="mt-2 fa-2x" />
-                  <a
-                    href="http://digitalhouse.com/"
+                  <Link
+                    to="http://digitalhouse.com/"
                     target="_blank"
                     rel="noreferrer"
                   >
                     <p>http://digitalhouse.com/</p>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

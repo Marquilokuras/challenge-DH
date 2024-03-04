@@ -1,4 +1,5 @@
 import imagenFondo from "/img/404-NotFound.jpg";
+import {Link} from "react-router-dom";
 
 function NotFound() {
   return (
@@ -10,7 +11,7 @@ function NotFound() {
         src={imagenFondo}
         alt="Error 404"
       />
-      <a href="/" style={{ display: "block", textDecoration: "none" }}>
+      <Link to="/" style={{ display: "block", textDecoration: "none" }}>
         <button
           style={{
             backgroundColor: "black",
@@ -23,7 +24,7 @@ function NotFound() {
         >
           Volver
         </button>
-      </a>
+      </Link>
     </div>
     </>
   );

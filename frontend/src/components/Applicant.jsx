@@ -24,17 +24,12 @@ function Applicant() {
     <>
       <section className="content aspirantes" id="candidate">
         <h2 className="text-center">Aspirantes</h2>
-        <ul>
           <div className="container mt-4">
             <h4>Filtro por Género</h4>
             <div className="d-flex flex-wrap gap-2">
               <div className="mb-2">
                 <button
-                  className={`btn ${
-                    generoSeleccionado === "Man"
-                      ? "btn-primary"
-                      : "btn-secondary"
-                  }`}
+                  className={`btn ${generoSeleccionado === "Man" ? "btn-primary" : "btn-secondary"}`}
                   onClick={() => seleccionarGenero("Man")}
                 >
                   Hombre
@@ -42,11 +37,7 @@ function Applicant() {
               </div>
               <div className="mb-2">
                 <button
-                  className={`btn ${
-                    generoSeleccionado === "Woman"
-                      ? "btn-primary"
-                      : "btn-secondary"
-                  }`}
+                  className={`btn ${generoSeleccionado === "Woman" ? "btn-primary" : "btn-secondary"}`}
                   onClick={() => seleccionarGenero("Woman")}
                 >
                   Mujer
@@ -54,11 +45,7 @@ function Applicant() {
               </div>
               <div className="mb-2">
                 <button
-                  className={`btn ${
-                    generoSeleccionado === "Other"
-                      ? "btn-primary"
-                      : "btn-secondary"
-                  }`}
+                  className={`btn ${generoSeleccionado === "Other" ? "btn-primary" : "btn-secondary"}`}
                   onClick={() => seleccionarGenero("Other")}
                 >
                   Otros
@@ -66,11 +53,7 @@ function Applicant() {
               </div>
               <div className="mb-2">
                 <button
-                  className={`btn ${
-                    generoSeleccionado === "all"
-                      ? "btn-primary"
-                      : "btn-secondary"
-                  }`}
+                  className={`btn ${generoSeleccionado === "all" ? "btn-primary" : "btn-secondary"}`}
                   onClick={() => seleccionarGenero("all")}
                 >
                   Todos
@@ -81,41 +64,31 @@ function Applicant() {
 
           <article className="person-boxes">
             {solicitantesFiltrados.map((result, i) => (
-              <div
-                className="mt-3 person-box shadow p-3 mb-5 bg-body-tertiary rounded"
-                key={`div-1-${i}`}
-              >
+              <div className="mt-3 person-box shadow p-3 mb-5 bg-body-tertiary rounded" key={`div-1-${i}`}>
                 <div className="box-avatar" key={`div-avatar-${i}`}>
-                  <img
-                    src={`/img/${result.image}`}
-                    alt={`img-${result.name}`}
-                    key={`img-${i}`}
-                  />
+                  <img src={`/img/${result.image}`} alt={`img-${result.name}`} key={`img-${i}`}/>
                 </div>
                 <div className="box-bio" key={`div-3-${i}`}>
                   <h2 className="bio-name" key={`div-2-${i}`}>
                     {result.name} {result.lastname}
                   </h2>
-                  <h6>Detalle:</h6>
-                  <h2 className="bio-position" key={`div-2-${i}`}>
+                  <h2 className="bio-position mt-2" key={`div-2-${i}`}>
                     Linkedin: {result.urlLinkedin}
                   </h2>
                   <h2 className="bio-position  mt-2" key={`div-2-${i}`}>
                     Teléfono: {result.phone}
                   </h2>
-                  <div className="bio-position mt-2">
-                    <h8>Profesion:</h8>
+                  <div className="bio-position">
                     {result.professions.map((res, j) => (
-                      <p className="bio-position mt-1" key={`div-2-${j}`}>
+                      <h4 className="title-profession" key={`div-2-${j}`}>
                         {res.profession}
-                      </p>
+                      </h4>
                     ))}
                   </div>
                 </div>
               </div>
             ))}
           </article>
-        </ul>
 
         <div>
           {(() => {
@@ -134,41 +107,23 @@ function Applicant() {
                           key={`img-${i}`}
                         />
                       </div>
-                      <div className="box-bio" key={`div-bio-${i}`}>
-                        <h2 className="bio-name" key={`name-${i}`}>
+                      <div className="box-bio" key={`div-3-${i}`}>
+                        <h2 className="bio-name" key={`div-2-${i}`}>
                           {result.name} {result.lastname}
                         </h2>
-                        {result.professions.map((res, j) => (
-                          <p className="bio-position" key={`profe-${j}`}>
-                            {res.profession}
-                          </p>
-                        ))}
-                      </div>
-                      <div className="mt-2">
-                        {(() => {
-                          switch (result.gender) {
-                            case "Woman":
-                              return <h6 key={`name-${i}`}>Mujer</h6>;
-                            case "Man":
-                              return <h6 key={`name-${i}`}>Hombre</h6>;
-                            case "Other":
-                              return <h6 key={`name-${i}`}>Otro</h6>;
-                            default:
-                              return <h6 key={`name-${i}`}>{result.gender}</h6>;
-                          }
-                        })()}
-                      </div>
-
-                      <div className="box-actions" key={`div-actions-${i}`}>
-                        <button key={`but-1-${i}`}>
-                          <i className="bi bi-star" key={`icon-1-${i}`}></i>
-                        </button>
-                        <button key={`but-2-${i}`}>
-                          <i className="bi bi-chat" key={`icon-2-${i}`}></i>
-                        </button>
-                        <button key={`but-3-${i}`}>
-                          <i className="bi bi-envelope" key={`icon-3-${i}`}></i>
-                        </button>
+                        <h2 className="bio-position mt-2" key={`div-2-${i}`}>
+                          Linkedin: {result.urlLinkedin}
+                        </h2>
+                        <h2 className="bio-position  mt-2" key={`div-2-${i}`}>
+                          Teléfono: {result.phone}
+                        </h2>
+                        <div className="bio-position">
+                          {result.professions.map((res, j) => (
+                            <h4 className="title-profession" key={`div-2-${j}`}>
+                              {res.profession}
+                            </h4>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ))}

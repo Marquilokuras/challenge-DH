@@ -15,7 +15,7 @@ function ContentWrap() {
                     <Route path="/applicant" element={<Applicant />} />
                     <Route path="/profession" element={<Profession />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/*" element={<NotFound />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>
         </>
